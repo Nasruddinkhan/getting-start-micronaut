@@ -24,6 +24,7 @@
         <exec.mainClass>com.mypractice.Application</exec.mainClass>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        <base.name>nasruddinkhan</base.name>
     </properties>
 
   <repositories>
@@ -116,6 +117,24 @@
             <arg>-Amicronaut.processing.group=com.mypractice</arg>
             <arg>-Amicronaut.processing.module=getting-start-micronaut</arg>
           </compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <configuration>
+          <from>
+            <image>eclipse-temurin:21-jre</image>
+          </from>
+          <to>
+            <image>${base.name}/${project.artifactId}:${project.version}</image>
+          </to>
+          <container>
+            <mainClass>${exec.mainClass}</mainClass>
+            <ports>
+              <port>8080</port>
+            </ports>
+          </container>
         </configuration>
       </plugin>
     </plugins>

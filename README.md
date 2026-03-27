@@ -6,6 +6,48 @@
 - [Micronaut Guides](https://guides.micronaut.io/index.html)
 ---
 
+## Build Commands
+
+- Compile the project:
+
+```bash
+./mvnw compile
+```
+
+- Package the application:
+
+```bash
+./mvnw package
+```
+
+- Run the tests:
+
+```bash
+./mvnw test
+```
+
+## Docker Image Build
+
+This project uses the Jib Maven plugin to build a local Docker image without needing a `Dockerfile`.
+
+- Build the local Docker image:
+
+```bash
+./mvnw compile jib:dockerBuild
+```
+
+- Build with a custom image name:
+
+```bash
+./mvnw compile jib:dockerBuild -Dimage=my-app:latest
+```
+
+- Default generated image name:
+
+```bash
+getting-start-micronaut:0.1
+```
+
 - [Micronaut Maven Plugin documentation](https://micronaut-projects.github.io/micronaut-maven-plugin/latest/)
 ## Feature maven-enforcer-plugin documentation
 
