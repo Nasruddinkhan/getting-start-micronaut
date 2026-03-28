@@ -1,14 +1,23 @@
 package com.mypractice.controller;
 
+import com.mypractice.service.HelloWorldService;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import jakarta.inject.Inject;
 
 @Controller("/hello")
 public class HelloWorld {
 
+    private final HelloWorldService service;
+
+    @Inject
+    public HelloWorld(HelloWorldService service) {
+        this.service = service;
+    }
+
     @Get(produces = MediaType.TEXT_PLAIN)
     public String helloWorld(){
-        return "Hello World";
+        return service.getMessage();
     }
 }
