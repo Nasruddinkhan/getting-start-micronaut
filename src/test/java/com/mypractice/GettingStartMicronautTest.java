@@ -1,22 +1,22 @@
 package com.mypractice;
 
 
-import io.micronaut.runtime.EmbeddedApplication;
+import io.micronaut.context.ApplicationContext;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 import jakarta.inject.Inject;
 
-@MicronautTest
+@MicronautTest(startApplication = false)
 class GettingStartMicronautTest {
 
     @Inject
-    EmbeddedApplication<?> application;
+    ApplicationContext applicationContext;
 
     @Test
     void testItWorks() {
-        Assertions.assertTrue(application.isRunning());
+        Assertions.assertTrue(applicationContext.isRunning());
     }
 
 }

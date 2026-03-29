@@ -11,7 +11,6 @@ public class HelloWorld {
 
     private final HelloWorldService service;
 
-    @Inject
     public HelloWorld(HelloWorldService service) {
         this.service = service;
     }

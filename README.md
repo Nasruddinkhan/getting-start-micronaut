@@ -26,6 +26,40 @@
 ./mvnw test
 ```
 
+## Micronaut Dependencies
+
+This project is built on the Micronaut platform parent:
+
+```xml
+<parent>
+  <groupId>io.micronaut.platform</groupId>
+  <artifactId>micronaut-parent</artifactId>
+  <version>4.10.10</version>
+</parent>
+```
+
+Main application dependencies:
+
+- `io.micronaut:micronaut-http-server-netty`
+- `io.micronaut.serde:micronaut-serde-jackson`
+- `ch.qos.logback:logback-classic`
+
+Test dependencies:
+
+- `io.micronaut:micronaut-http-client`
+- `io.micronaut.test:micronaut-test-junit5`
+- `org.junit.jupiter:junit-jupiter-api`
+- `org.junit.jupiter:junit-jupiter-engine`
+
+Annotation processor dependencies used by the Maven compiler plugin:
+
+- `io.micronaut:micronaut-inject-java`
+- `io.micronaut:micronaut-http-validation`
+- `io.micronaut.serde:micronaut-serde-processor`
+- `io.micronaut:micronaut-inject`
+
+Annotation processing should stay enabled for this project because Micronaut relies on compile-time generated metadata.
+
 ## Docker Image Build
 
 This project uses the Jib Maven plugin to build a local Docker image without needing a `Dockerfile`.
